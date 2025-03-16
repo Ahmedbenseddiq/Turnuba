@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('chairs', function (Blueprint $table) {
             $table->id();
+            $table->integer('number');
+            $table->boolean('is_reserved')->default(false);
+            $table->time('avg_time')->nullable();
+            $table->foreignId('barbershop_id')->constrained('barbershops')->onDelete('cascade');
+            $table->foreignId('barber_id')->constrained('barbers');
             $table->timestamps();
         });
     }

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barber_shops', function (Blueprint $table) {
+        Schema::create('barbershops', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('address');
             $table->string('phone');
             $table->string('type');
+            $table->foreignId('owner_id')->constrained('owners')->onDelete('cascade');
             $table->timestamps();
         });
     }

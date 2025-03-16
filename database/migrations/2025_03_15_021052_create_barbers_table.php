@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('barbers', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_active')->default(true);
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('barbershop_id')->constrained('barbershops');
             $table->timestamps();
         });
     }
