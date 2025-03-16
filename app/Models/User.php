@@ -34,7 +34,7 @@ class User extends Authenticatable
         return $this->hasMany(Client::class);
     }
 
-    public function admins()
+    public function owners()
     {
         return $this->hasMany(Owner::class);
     }
