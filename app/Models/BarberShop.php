@@ -14,5 +14,19 @@ class BarberShop extends Model
         'owner_id',
     ];
 
+    public function owner()
+    {
+        return $this->belongsTo(Owner::class);
+    }
+
+    public function barbers()
+    {
+        return $this->hasMany(Barber::class);
+    }
+
+    public function chairs()
+    {
+        return $this->hasMany(Chair::class);
+    }
     
 }

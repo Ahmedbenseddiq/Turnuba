@@ -24,6 +24,21 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function barbers()
+    {
+        return $this->hasMany(Barber::class);
+    }
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class);
+    }
+
+    public function admins()
+    {
+        return $this->hasMany(Owner::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -33,6 +48,8 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+   
 
     /**
      * Get the attributes that should be cast.
